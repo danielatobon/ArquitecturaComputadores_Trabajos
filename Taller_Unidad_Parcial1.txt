@@ -1,0 +1,90 @@
+Daniela Tobón - 1088310807
+Taller Unidad Arquitectura.
+
+
+
+1- programa que calcule la potencia de dos números enteros sin signo, usando a la vez la función mul.
+
+
+
+//Calcula 3 al exponente 5
+
+int mul(int num1, int num2)
+{
+    int resultado=0;
+    int i=0;
+    
+    while(i<num2)
+    {
+    	resultado = resultado + num1;    
+    	i = i + 1;
+    }
+    
+    return resultado;
+}
+
+int main()
+{
+	int base=3;
+	int poten=5;
+	int resultado=1;
+	int i=0;
+	
+	if (poten == 0) return resultado;
+	while(i<poten)
+	{
+		resultado = mul(resultado,base);
+		i = i + 1;
+	}
+	
+	return resultado;
+}
+
+
+
+
+
+2- Programa potencia en lenguaje de bajo nivel (Ensamblador) 
+
+0X0000 | mov 0, %l0
+0X0004 | mov 0, %l1
+0X0008 | BA While
+0X000C | BGE %l1, %l2
+0X0010 | Add %l0, %l3, %l4
+0X0014 | Add %l1, 1, Oo
+0X0018 | jmpl %O7, 8, g0
+0X001C | mov 3, %i0
+0X0020 | mov 5, %i1
+0X0024 | mov 1, %i2
+0X0028 | mov 0, %i3
+0X002C | cmp %i1, 0
+0X0030 | BGE %i3, %i1
+0X0034 | call mul
+0X0038 | Add %i3, 1, O1
+0X003C | NOP 
+
+
+3- Programa potencia en lenguaje de máquina   (Usando los formatos correspondientes y sus códigos en binario).
+
+JMPL
+
+Formato 3
+
+OP	Rd	OP3	RS1	i	Unused (Zero)	RS2
+10	11000	000000	00000	1	00000000	00011
+10	11001	000000	00000	1	00000000	00101
+10	11010	000000	00000	1	00000000	00001
+10	11011	000000	00000	1	00000000	00000
+
+
+
+CALL 
+
+OPCODE   OP    Operation
+CALL     01    111111111111111111111111110010
+
+
+
+
+
+
